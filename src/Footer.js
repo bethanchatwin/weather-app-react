@@ -11,14 +11,14 @@ export default function Footer() {
       </a>
       , is
       <a
-        href="https://github.com/bethanchatwin/Vanilla-Weather-App"
+        href="https://github.com/bethanchatwin/weather-app-react"
         target="_blank"
       >
         {" "}
         open-sourced on GitHub{" "}
       </a>
       and
-      <a href="https://meteovanillaweatherapp.netlify.app" target="_blank">
+      <a href="https://bethsreactweatherapp.netlify.app" target="_blank">
         {" "}
         hosted on Netlify
       </a>

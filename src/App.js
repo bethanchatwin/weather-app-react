@@ -4,6 +4,7 @@ import WeatherAppData from "./Weather-app-data";
 import WeatherTemperatureContainer from "./Weather-app-temperature-container";
 import WeatherForecast from "./Weather-forecast";
 import Footer from "./Footer";
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import React, { usestate } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 import "./Search.css";
@@ -15,7 +15,7 @@ export default function Search() {
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.weather[0].icon}`,
     });
   }
   function handleSubmit(event) {
@@ -45,15 +45,11 @@ export default function Search() {
     return (
       <div>
         {form}
-        <ul>
-          <li>Temperature: {Math.round(weather.temperature)}°C</li>
-          <li>Description: {weather.description}</li>
-          <li>Humidity: {weather.humidity}%</li>
-          <li>Wind: {weather.wind}km/h</li>
-          <li>
-            <img src={weather.icon} alt={weather.description} />
-          </li>
-        </ul>
+
+        <p>{response.data.city}</p>
+        <p>{response.data.city}</p>
+        <p>{response.data.city}</p>
+        <img src={weather.icon} alt={weather.description} />
       </div>
     );
   } else {

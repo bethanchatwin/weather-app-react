@@ -16,13 +16,21 @@ export default function Search() {
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
       icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.weather[0].icon}`,
+      city: response.data.name, // Assuming you want to display the city name
     });
   }
+
   function handleSubmit(event) {
     event.preventDefault();
     let apiKey = "0083118ae860436btf146b9cbfb3oc7f";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(displayWeather);
+    axios
+      .get(apiUrl)
+      .then(displayWeather)
+      .catch((error) => {
+        console.error("Error fetching weather data:", error);
+        setLoaded(false); // Reset loaded state on error
+      });
   }
 
   function updateCity(event) {
@@ -46,9 +54,10 @@ export default function Search() {
       <div>
         {form}
 
-        <p>{response.data.city}</p>
-        <p>{response.data.city}</p>
-        <p>{response.data.city}</p>
+        <p>Temperature: {weather.temperature} °C</p>
+        <p>Wind: {weather.wind} m/s</p>
+        <p>Humidity: {weather.humidity}%</p>
+        <p>{weather.city}</p>
         <img src={weather.icon} alt={weather.description} />
       </div>
     );

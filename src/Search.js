@@ -39,7 +39,12 @@ export default function Search() {
 
   let form = (
     <form className="search" onSubmit={handleSubmit}>
-      <input type="text" placeholder="Enter a city..." onChange={updateCity} />
+      <input
+        className="search-form-input"
+        type="text"
+        placeholder="Enter a city..."
+        onChange={updateCity}
+      />
       <input className="search-form-button" type="submit" value="Search" />
     </form>
   );

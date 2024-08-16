@@ -11,12 +11,12 @@ export default function Search() {
   function displayWeather(response) {
     setLoaded(true);
     setWeather({
-      temperature: response.data.main.temp,
+      temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
-      humidity: response.data.main.humidity,
-      description: response.data.weather[0].description,
-      icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.weather[0].icon}`,
-      city: response.data.name, // Assuming you want to display the city name
+      humidity: response.data.temperature.humidity,
+      description: response.data.condition.description,
+      icon: response.data.condition.icon_url,
+      city: response.data.city,
     });
   }
 
@@ -29,7 +29,7 @@ export default function Search() {
       .then(displayWeather)
       .catch((error) => {
         console.error("Error fetching weather data:", error);
-        setLoaded(false); // Reset loaded state on error
+        setLoaded(false);
       });
   }
 
@@ -38,27 +38,27 @@ export default function Search() {
   }
 
   let form = (
-    <form onSubmit={handleSubmit}>
-      <input
-        className="input"
-        type="text"
-        placeholder="Enter a city..."
-        onChange={updateCity}
-      />
-      <input className="input" type="submit" value="Search" />
+    <form className="search" onSubmit={handleSubmit}>
+      <input type="text" placeholder="Enter a city..." onChange={updateCity} />
+      <input className="search-form-button" type="submit" value="Search" />
     </form>
   );
 
   if (loaded) {
     return (
-      <div>
+      <div className="details">
         {form}
 
-        <p>Temperature: {weather.temperature} °C</p>
-        <p>Wind: {weather.wind} m/s</p>
-        <p>Humidity: {weather.humidity}%</p>
-        <p>{weather.city}</p>
-        <img src={weather.icon} alt={weather.description} />
+        <div className="data">
+          <p>Temperature: {weather.temperature} °C</p>
+          <p>Wind: {weather.wind} m/s</p>
+          <p>Humidity: {weather.humidity}%</p>
+        </div>
+        <div className="city">
+          <p>{weather.city}</p>
+
+          <img src={weather.icon} alt={weather.description} />
+        </div>
       </div>
     );
   } else {

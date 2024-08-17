@@ -16,7 +16,7 @@ export default function Search() {
       humidity: response.data.temperature.humidity,
       description: response.data.condition.description,
       icon: response.data.condition.icon_url,
-      date: response.data.date,
+      date: response.data.time,
       city: response.data.city,
     });
   }
@@ -52,18 +52,23 @@ export default function Search() {
 
   if (loaded) {
     return (
-      <div className="details">
+      <div>
         {form}
-
-        <div className="data">
-          <p>Temperature: {weather.temperature} °C</p>
-          <p>Wind: {weather.wind} m/s</p>
-          <p>Humidity: {weather.humidity}%</p>
-        </div>
-        <p>{weather.date}</p>
-        <div className="city">
-          <p>{weather.city}</p>
-          <img src={weather.icon} alt={weather.description} />
+        <div className="details">
+          <div className="city">
+            <p>{weather.date}</p>
+            <p>{weather.city}</p>
+            <div className="weather-app-temperature-container">
+              <img src={weather.icon} alt={weather.description} />
+              <div className="weather-app-temperature" id="current-temp">
+                {Math.round(weather.temperature)}°C
+              </div>
+            </div>
+          </div>
+          <div className="data">
+            <p>Wind: {weather.wind} m/s</p>
+            <p>Humidity: {weather.humidity}%</p>
+          </div>
         </div>
       </div>
     );

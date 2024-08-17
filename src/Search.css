@@ -1,4 +1,8 @@
-.search .search-form-input {
+.search {
+  display: flex;
+}
+
+.search-form-input {
   background-color: #f9f7fe;
   border: none;
   border-radius: 6px;
@@ -17,10 +21,6 @@
   border-radius: 6px;
   color: white;
 }
-.data {
-  display: flex;
-  justify-content: space-between;
-}
 
 .city {
   margin: 0;
@@ -33,4 +33,6 @@
   color: rgba(39, 33, 66, 0.4);
   line-height: 24px;
   font-weight: 500;
+  display: flex;
+  justify-content: space-between;
 }

@@ -16,6 +16,7 @@ export default function Search() {
       humidity: response.data.temperature.humidity,
       description: response.data.condition.description,
       icon: response.data.condition.icon_url,
+      date: response.data.date,
       city: response.data.city,
     });
   }
@@ -59,9 +60,9 @@ export default function Search() {
           <p>Wind: {weather.wind} m/s</p>
           <p>Humidity: {weather.humidity}%</p>
         </div>
+        <p>{weather.date}</p>
         <div className="city">
           <p>{weather.city}</p>
-
           <img src={weather.icon} alt={weather.description} />
         </div>
       </div>

@@ -16,7 +16,7 @@ export default function Search() {
       humidity: response.data.temperature.humidity,
       description: response.data.condition.description,
       icon: response.data.condition.icon_url,
-      date: response.data.time,
+
       city: response.data.city,
     });
   }
@@ -56,7 +56,6 @@ export default function Search() {
         {form}
         <div className="details">
           <div className="city">
-            <p>{weather.date}</p>
             <p>{weather.city}</p>
             <div className="weather-app-temperature-container">
               <img src={weather.icon} alt={weather.description} />

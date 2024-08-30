@@ -25,6 +25,8 @@
   margin-top: 20px;
   font-size: 38px;
   line-height: 48px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .details {
@@ -41,4 +43,8 @@
 }
 .wind-humidity {
   color: #885df1;
+}
+.data {
+  font-weight: bold;
+  margin-top: 22px;
 }

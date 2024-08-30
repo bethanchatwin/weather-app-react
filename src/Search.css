@@ -22,7 +22,7 @@
 }
 
 .city {
-  margin: 0;
+  margin-top: 20px;
   font-size: 38px;
   line-height: 48px;
 }
@@ -34,4 +34,11 @@
   font-weight: 500;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
+}
+.weather-app-temperature {
+  margin-right: 20px;
+}
+.wind-humidity {
+  color: #885df1;
 }

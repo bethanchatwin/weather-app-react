@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormatDate from "./Date";
 
 import "./Search.css";
 
@@ -9,16 +10,16 @@ export default function Search() {
   let [loaded, setLoaded] = useState(false);
 
   function displayWeather(response) {
-    setLoaded(true);
     setWeather({
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
       humidity: response.data.temperature.humidity,
       description: response.data.condition.description,
       icon: response.data.condition.icon_url,
-
+      date: new Date(response.data.time * 1000),
       city: response.data.city,
     });
+    setLoaded(true);
   }
 
   function handleSubmit(event) {
@@ -57,6 +58,7 @@ export default function Search() {
         <div className="details">
           <div className="city">
             <p>{weather.city}</p>
+
             <div className="weather-app-temperature-container">
               <img src={weather.icon} alt={weather.description} />
               <div className="weather-app-temperature" id="current-temp">
@@ -65,8 +67,14 @@ export default function Search() {
             </div>
           </div>
           <div className="data">
-            <p>Wind: {weather.wind} m/s</p>
-            <p>Humidity: {weather.humidity}%</p>
+            <FormatDate date={weather.date} />
+            <p>
+              Wind: <span className="wind-humidity">{weather.wind} m/s</span>
+            </p>
+            <p>
+              Humidity:{" "}
+              <span className="wind-humidity">{weather.humidity}%</span>
+            </p>
           </div>
         </div>
       </div>

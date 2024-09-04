@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import FormatDate from "./Date";
+import WeatherTemperature from "./WeatherTemperature";
 
 import "./Search.css";
 
@@ -61,9 +62,7 @@ export default function Search() {
 
             <div className="weather-app-temperature-container">
               <img src={weather.icon} alt={weather.description} />
-              <div className="weather-app-temperature" id="current-temp">
-                {Math.round(weather.temperature)}°C
-              </div>
+              <WeatherTemperature celsius={weather.temperature} />
             </div>
           </div>
           <div className="data">

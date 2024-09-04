@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 
 export default function FormatDate({ date }) {
   let minutes = date.getMinutes();
@@ -22,5 +21,22 @@ export default function FormatDate({ date }) {
     hour = `0${hour}`;
   }
 
-  return `${day} ${hour}:${minutes}`;
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  return `${day}, ${date.getDate()} ${
+    months[date.getMonth()]
+  } ${hour}:${minutes}`;
 }

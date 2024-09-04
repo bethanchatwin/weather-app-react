@@ -68,13 +68,13 @@ export default function Search() {
           </div>
           <div className="data">
             <FormatDate date={weather.date} />
-            <p>
+            <div>
               Wind: <span className="wind-humidity">{weather.wind} m/s</span>
-            </p>
-            <p>
+            </div>
+            <div>
               Humidity:{" "}
               <span className="wind-humidity">{weather.humidity}%</span>
-            </p>
+            </div>
           </div>
         </div>
       </div>

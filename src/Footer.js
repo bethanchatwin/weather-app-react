@@ -9,7 +9,7 @@ export default function Footer() {
       <a
         href="https://github.com/bethanchatwin"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         Beth Chatwin
       </a>
@@ -17,7 +17,7 @@ export default function Footer() {
       <a
         href="https://github.com/bethanchatwin/weather-app-react"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         {" "}
         open-sourced on GitHub{" "}
@@ -26,7 +26,7 @@ export default function Footer() {
       <a
         href="https://bethsreactweatherapp.netlify.app"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         {" "}
         hosted on Netlify

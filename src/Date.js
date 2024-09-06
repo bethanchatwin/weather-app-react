@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function FormatDate({ date }) {
   let minutes = date.getMinutes();
   let hour = date.getHours();

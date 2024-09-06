@@ -48,6 +48,13 @@
   font-weight: bold;
   margin-top: 22px;
 }
-p {
-  padding-bottom: 0px;
+a {
+  text-decoration: none;
+}
+.weather-app-unit {
+  font-size: 20px;
+  text-decoration: none;
+  line-height: 1;
+  top: -12px;
+  position: relative;
 }
